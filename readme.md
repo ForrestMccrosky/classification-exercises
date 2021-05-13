@@ -1,0 +1,1 @@
+This repository will be used to complete my classifications exercises within my Data Science class at Codeup.
