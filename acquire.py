@@ -36,5 +36,5 @@ def new_iris_data():
                 JOIN species
                 USING(species_id)
                 """
-    df = pd.read_sql(sql_query, get_connection('iris_db'))
+    df = pd.read_sql(sql_query, sql_connect('iris_db'))
     return df
