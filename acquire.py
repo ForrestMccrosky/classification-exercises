@@ -5,7 +5,7 @@ import numpy as np
 import os
 from env import host, user, password
 
-
+#############################Connect To SQL database Function##############################
 
 def sql_connect(db, user=user, host=host, password=password):
     '''
@@ -14,7 +14,7 @@ def sql_connect(db, user=user, host=host, password=password):
     '''
     return f'mysql+pymysql://{user}:{password}@{host}/{db}'
 
-
+#############################Acquire Titanic Database Lightspeed###########################
 
 def get_titanic_data():
     '''
@@ -25,7 +25,7 @@ def get_titanic_data():
     df = pd.read_sql(sql_query, sql_connect('titanic_db'))
     return df
 
-
+##############################Acquire Iris Database Lightspeed#############################
 
 def get_iris_data():
     '''
@@ -45,7 +45,7 @@ def get_iris_data():
     df = pd.read_sql(sql_query, sql_connect('iris_db'))
     return df
 
-
+################################Acquire Titanic CSV Lightspeed###############################
 
 def get_titanic_csv(cached=False):
     if cached == False or os.path.isfile('titanic_df.csv') == False:
@@ -55,7 +55,7 @@ def get_titanic_csv(cached=False):
         df = pd.read_csv('titanic_df.csv', index_col=0)
     return df
 
-
+#################################Acquire Iris CSV Lightspeed#################################
 
 def get_iris_csv(cached=False):
     if cached == False or os.path.isfile('iris_df.csv') == False:
