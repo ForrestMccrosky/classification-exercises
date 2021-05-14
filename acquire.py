@@ -49,7 +49,7 @@ def get_iris_data():
 
 def get_titanic_csv(cached=False):
     if cached == False or os.path.isfile('titanic_df.csv') == False:
-        df = new_titanic_data()
+        df = get_titanic_data()
         df.to_csv('titanic_df.csv')
     else:
         df = pd.read_csv('titanic_df.csv', index_col=0)
@@ -59,7 +59,7 @@ def get_titanic_csv(cached=False):
 
 def get_iris_csv(cached=False):
     if cached == False or os.path.isfile('iris_df.csv') == False:
-        df = new_iris_data()
+        df = get_iris_data()
         df.to_csv('iris_df.csv')
     else:
         df = pd.read_csv('iris_df.csv', index_col=0)
