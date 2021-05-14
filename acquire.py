@@ -5,12 +5,16 @@ import numpy as np
 import os
 from env import host, user, password
 
+
+
 def sql_connect(db, user=user, host=host, password=password):
     '''
     This function allows me to connect the Codeup database to pull SQL tables
     Using private information from my env.py file.
     '''
     return f'mysql+pymysql://{user}:{password}@{host}/{db}'
+
+
 
 def get_titanic_data():
     '''
@@ -21,7 +25,9 @@ def get_titanic_data():
     df = pd.read_sql(sql_query, sql_connect('titanic_db'))
     return df
 
-def new_iris_data():
+
+
+def get_iris_data():
     '''
     This function reads the iris data and joins two tables then makes that into a dataframe
     '''
@@ -37,4 +43,24 @@ def new_iris_data():
                 USING(species_id)
                 """
     df = pd.read_sql(sql_query, sql_connect('iris_db'))
+    return df
+
+
+
+def get_titanic_csv(cached=False):
+    if cached == False or os.path.isfile('titanic_df.csv') == False:
+        df = new_titanic_data()
+        df.to_csv('titanic_df.csv')
+    else:
+        df = pd.read_csv('titanic_df.csv', index_col=0)
+    return df
+
+
+
+def get_iris_csv(cached=False):
+    if cached == False or os.path.isfile('iris_df.csv') == False:
+        df = new_iris_data()
+        df.to_csv('iris_df.csv')
+    else:
+        df = pd.read_csv('iris_df.csv', index_col=0)
     return df
