@@ -47,7 +47,11 @@ def get_iris_data():
 
 ################################Acquire Titanic CSV Lightspeed###############################
 
-def get_titanic_csv(cached=False):
+def get_titanic_df(cached=False):
+    '''
+    This funciton is going to check if there is already a local csv file for the titanic data and pull the dataframe locally
+    to be faster. If there is not a local file it is going to create a local csv file
+    '''
     if cached == False or os.path.isfile('titanic_df.csv') == False:
         df = get_titanic_data()
         df.to_csv('titanic_df.csv')
@@ -57,7 +61,11 @@ def get_titanic_csv(cached=False):
 
 #################################Acquire Iris CSV Lightspeed#################################
 
-def get_iris_csv(cached=False):
+def get_iris_df(cached=False):
+    '''
+    This funciton is going to check if there is already a local csv file for the iris data and pull the dataframe locally
+    to be faster. If there is not a local file it is going to create a local csv file.
+    '''
     if cached == False or os.path.isfile('iris_df.csv') == False:
         df = get_iris_data()
         df.to_csv('iris_df.csv')
