@@ -1,5 +1,5 @@
 ## Classification Exercises Repository 
- - This repository will be used to complete my classifications exercise at part of my Data Science curicculumn with the Florence Cohort at Codeup
+ - This repository will be used to complete my classifications exercise as part of my Data Science curicculumn with the Florence Cohort at Codeup
 ### Exercises:
  - Classification Exercises (Jupyter Notebook)
  - Model Evaluation Exercise (Jupyter Notebook)
